@@ -12,5 +12,16 @@
 </style>
 <body>
   <h1 th:text="'Welcome Boot!'"/>
+  <a th:href="@{/test1}">test1 Get방식</a><br>
+  <a th:href="@{/test2}">test2 Get방식</a><br>
+  <a th:href="@{/sub1/test3}">sub1/test3 Get방식</a><br>
+  <a th:href="@{/sub1/test4}">sub1/test4 Get방식</a>
+<!--  <a th:href="@{/sub1/test5"}>sub1/test5 Get방식</a>-->
+
+    <form method="post" action="/test6">
+        아이디 : <input type="text" name="userid"><br>
+        비밀번호 : <input type="password" name="pass"><br>
+        <button type="submit">로그인</button>
+    </form>
 </body>
 </html>
