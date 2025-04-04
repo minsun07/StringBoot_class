@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>메인</title>
+</head>
+<body>
+ <h1 th:text="'정수 5개를 입력 받아서 짝수, 홀수별 합계 출력.'"/>
+      <form method="post" action="/index">
+          숫자1 : <input type="number" name="num1"/><br>
+          숫자2 : <input type="number" name="num2"/><br>
+          숫자3 : <input type="number" name="num3"/><br>
+          숫자 4 : <input type="number" name="num4"/><br>
+          숫자5 : <input type="number" name="num5"/><br>
+        <button type="submit">보내기</button>
+      </form>
+<hr>
+ <h1 th:text="'정수 n을 입력받은 후, 1부터 100까지의 정수 중에서 n의 배수만 출력하시오.'"/>
+ <form method="post" action="/index2">
+     n : <input type="number" name="N"/>
+     <button type="submit">전송</button>
+ </form>
+</body>
+</html>
