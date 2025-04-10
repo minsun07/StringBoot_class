@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+    <form method="post" action="table_input">
+        구구단을 입력하세요 <input type="number" name="gugu"/><br>
+        <button type="submit">보내기</button>
+    </form>
+</body>
+</html>
