@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1 th:text="'Score'"/>
+  <form method="post" action="/score">
+    이름 : <input type="text" name="name"><br>
+    국어 : <input type="number" name="kor"><br>
+    영어 : <input type="number" name="eng"><br>
+    수학 : <input type="number" name="math"><br>
+    <button type="submit">입력 완료</button>
+  </form>
+</body>
+</html>
