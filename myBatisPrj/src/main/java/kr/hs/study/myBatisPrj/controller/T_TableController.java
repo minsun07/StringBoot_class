@@ -13,12 +13,12 @@ public class T_TableController {
         return "table_input";
     }
 
-    @PostMapping("table_input")
+    @PostMapping("table_inputs")
     public String t_table(Model model, @RequestParam("gugudan") Integer gugudan){
         String result = "";
 
         for(int i=1; i<10; i++){
-            result += gugudan + " * " + i + " = " + gugudan*i;
+            result += gugudan + " * " + i + " = " + gugudan*i + "<br>";
             System.out.println(gugudan + " * " + i + " = " + gugudan*i);
         }
 

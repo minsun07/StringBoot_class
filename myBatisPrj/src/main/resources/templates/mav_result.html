@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ModelAndView</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+    <a th:text="|이름 : ${item}|"/>
+</body>
+</html>
