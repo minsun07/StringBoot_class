@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MemoServiceImpe implements MemoService{
+public class MemoServiceImpl implements MemoService{
     @Autowired
     private MemoDao dao;
 
     @Override
     public void insert(MemoDto dto) {
-
+        dao.insert(dto);
     }
 
     @Override
