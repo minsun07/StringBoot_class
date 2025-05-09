@@ -9,5 +9,5 @@ public class MemoDto {
     private int idx;
     private String writer;
     private String memo;
-    private LocalDateTime post_date;
+    private LocalDateTime post_data;
 }
