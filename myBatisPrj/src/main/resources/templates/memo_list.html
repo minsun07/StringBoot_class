@@ -13,7 +13,7 @@
 </style>
     <body>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
-    <form class="content" method="post" action="memo">
+    <form class="content" method="post" action="write_done">
         <h1 th:text="'NOTE MENO'">NOTE MENO</h1>
         <div class="mb-3" style="max-width: 500px; margin 4rem auto">
             <label for="exampleFormControlInput1" class="form-label"><strong>writer</strong></label>
@@ -25,6 +25,23 @@
         </div>
         <button type="submit" class="btn btn-info">Done</button>
     </form>
+
+    <table class="table table-success table-striped">
+        <tr>
+            <td th:text="ID"></td>
+            <td th:text="Writer"></td>
+            <td th:text="Memo"></td>
+            <td th:text="Post_Date"></td>
+            <td th:text="ETC"></td>
+        </tr>
+        <tr th:each="item:${memoData}">
+            <td th:text="${item.idx}"></td>
+            <td th:text="${item.writer}"></td>
+            <td th:text="${item.memo}"></td>
+            <td th:text="${item.post_data}"></td>
+            <td th:text="ect"></td>
+        </tr>
+    </table>
 
     </body>
 </html>

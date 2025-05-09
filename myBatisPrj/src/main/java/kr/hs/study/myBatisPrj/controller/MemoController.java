@@ -17,23 +17,26 @@ public class MemoController {
     private MemoService service;
 
     @GetMapping("/Memo")
-    public String Memo_input(){
-        return "memo_list";
-    }
-
-//    @PostMapping("/memo")
-//    public String memo_input(MemoDto dto){
-//        service.insert(dto);
-//        return "memoResult";
-//    }
-
-    @GetMapping("/memo/list")
     public String listAll(Model model){
         List<MemoDto> all = service.listAll();
         model.addAttribute("memoData", all);
         System.out.println("size: " + all.size());
-        return "result";
+        return "memo_list";
     }
+
+    @PostMapping("/write_done")
+    public String memo_input(MemoDto dto){
+        service.insert(dto);
+        return "redirect:/Memo";
+    }
+
+//    @GetMapping("/memo")
+//    public String listAll(Model model){
+//        List<MemoDto> all = service.listAll();
+//        model.addAttribute("memoData", all);
+//        System.out.println("size: " + all.size());
+//        return "memo_list";
+//    }
 
 
 }
