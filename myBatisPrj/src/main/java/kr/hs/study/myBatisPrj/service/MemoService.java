@@ -11,9 +11,12 @@ public interface MemoService {
     // 1. insert (create)
     public void insert(MemoDto dto);
     // 2. update
-    public void update(int idx); // id로 수정
+    public void update(MemoDto dto); // id로 수정
     // 3. delete
     public void delete(int idx);
     // 4. select
     public List<MemoDto> listAll();  // return타입이 ArryList
+
+    // 한개 가져오기
+    public MemoDto selectOne(int idx);
 }

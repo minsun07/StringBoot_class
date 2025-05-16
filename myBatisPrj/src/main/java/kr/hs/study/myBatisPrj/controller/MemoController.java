@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -27,6 +28,20 @@ public class MemoController {
     @PostMapping("/write_done")
     public String memo_input(MemoDto dto){
         service.insert(dto);
+        return "redirect:/Memo";
+    }
+
+    @GetMapping("/edit/{idx}")
+    public String edit_form(@PathVariable("idx") int idx, Model model){
+        System.out.println("idx : " + idx);
+        MemoDto dto = service.selectOne(idx);
+        model.addAttribute("one", dto);
+        return "edit_form";
+    }
+
+    @PostMapping("/edit")
+    public String memo_re_input(MemoDto dto){
+        service.update(dto);
         return "redirect:/Memo";
     }
 

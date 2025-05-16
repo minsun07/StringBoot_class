@@ -13,15 +13,16 @@
 </style>
     <body>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
-    <form class="content" method="post" action="write_done">
+    <form class="content" method="post" action="/edit">
+        <input type="hidden" naem="idx" th:value="${one.idx}"/>  <!-- id를 숨긴다..? -->
         <h1 th:text="'NOTE MENO'">NOTE MENO</h1>
         <div class="mb-3" style="max-width: 500px; margin 4rem auto">
             <label for="exampleFormControlInput1" class="form-label"><strong>writer</strong></label>
-            <input type="text" name="writer" class="form-control" id="exampleFormControlInput1">
+            <input type="text" name="writer" class="form-control" id="exampleFormControlInput1" th:value="${one.writer}">
         </div>
         <div class="mb-3" style="max-width: 500px; margin 4rem auto;">
             <label for="exampleFormControlTextarea1" class="form-label"><strong>Memo</strong></label>
-            <textarea name="memo" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="메모 입력하세요."></textarea>
+            <textarea name="memo" class="form-control" id="exampleFormControlTextarea1" rows="3" th:text="${one.memo}"></textarea>
         </div>
         <button type="submit" class="btn btn-info">Done</button>
     </form>
