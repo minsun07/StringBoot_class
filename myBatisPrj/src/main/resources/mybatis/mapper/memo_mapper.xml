@@ -13,4 +13,7 @@
     <update id="update">
         update memo set writer=#{writer}, memo=#{memo} where idx=#{idx}
     </update>
+    <delete id="delete">
+        delete from memo where idx=#{idx}
+    </delete>
 </mapper>

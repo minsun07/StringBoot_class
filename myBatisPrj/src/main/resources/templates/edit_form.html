@@ -14,8 +14,8 @@
     <body>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
     <form class="content" method="post" action="/edit">
-        <input type="hidden" naem="idx" th:value="${one.idx}"/>  <!-- id를 숨긴다..? -->
-        <h1 th:text="'NOTE MENO'">NOTE MENO</h1>
+        <input type="hidden" name="idx" th:value="${one.idx}"/> <!-- id를 숨긴다..? -->
+        <h1 th:text="'NOTE MENO'">NOTE MEMO</h1>
         <div class="mb-3" style="max-width: 500px; margin 4rem auto">
             <label for="exampleFormControlInput1" class="form-label"><strong>writer</strong></label>
             <input type="text" name="writer" class="form-control" id="exampleFormControlInput1" th:value="${one.writer}">
@@ -27,25 +27,6 @@
         <button type="submit" class="btn btn-info">Done</button>
     </form>
 
-    <table class="table table-success table-striped">
-        <tr>
-            <td th:text="ID"></td>
-            <td th:text="Writer"></td>
-            <td th:text="Memo"></td>
-            <td th:text="Post_Date"></td>
-            <td th:text="etc"></td>
-
-        </tr>
-        <tr th:each="item:${memoData}">
-            <td th:text="${item.idx}"></td>
-            <td th:text="${item.writer}"></td>
-            <td th:text="${item.memo}"></td>
-            <td th:text="${item.post_data}"></td>
-            <td><a th:href="@{'/edit/'+${item.idx}}">Update</a>
-                <a th:href="@{'/delete/'+${item.idx}}">Delete</a>
-            </td>
-        </tr>
-    </table>
 
     </body>
 </html>

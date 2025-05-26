@@ -1,24 +1,24 @@
 package kr.hs.study.myBatisPrj.service;
 
-import kr.hs.study.myBatisPrj.dao.MemoDao;
-import kr.hs.study.myBatisPrj.dto.MemoDto;
+import kr.hs.study.myBatisPrj.dao.TodoDao;
+import kr.hs.study.myBatisPrj.dto.TodoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class MemoServiceImpl implements MemoService{
+public class TodoServiceImpl implements TodoService{
     @Autowired
-    private MemoDao dao;
+    private TodoDao dao;
 
     @Override
-    public void insert(MemoDto dto) {
+    public void insert(TodoDto dto) {
         dao.insert(dto);
     }
 
     @Override
-    public void update(MemoDto dto) {
+    public void update(TodoDto dto) {
         dao.update(dto);
     }
 
@@ -28,12 +28,12 @@ public class MemoServiceImpl implements MemoService{
     }
 
     @Override
-    public List<MemoDto> listAll() {
+    public List<TodoDto> listAll() {
         return dao.listAll();
     }
 
     @Override
-    public MemoDto selectOne(int idx) {
+    public TodoDto selectOne(int idx) {
         return dao.selectOne(idx);
     }
 }

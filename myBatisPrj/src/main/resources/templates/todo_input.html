@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>todo</title>
+</head>
+<body>
+<th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+<h1 th:text="'Todo App'"/>
+<form method="post" action="/Todo/todo_done">
+    <input type="text" name="content" placeholder="할 일을 작성하시오."><br>
+    <input type="text" name="password" placeholder="비밀 번호를 입력하세요."> <br>
+    <button type="submit">보내기</button>
+</form>
+
+<table>
+    <tr>
+        <td th:text="ID"></td>
+        <td th:text="CONTENT"></td>
+        <td th:text="STATUS"></td>
+        <td th:text="POST_DATE"></td>
+        <td th:text="ETC"></td>
+    </tr>
+    <tr th:each="item:${todoData}">
+        <td th:text="${item.idx}"></td>
+        <td th:text="${item.content}"></td>
+        <td th:text="${item.status}"></td>
+        <td th:text="${item.post_date}"></td>
+        <td>
+            <a th:href="@{'/Todo/edit/'+${item.idx}}">Update</a>
+            <a th:href="@{'/Todo/delete/'+${item.idx}}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

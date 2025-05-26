@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>todo edit</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+    <form method="post" action="/Todo/todo_edit">
+        <input type="hidden" name="idx" th:value="${todo_one.idx}"/>
+        <h1 th:text="'TODO NOTE'">TODO NOTE</h1>
+        <strong>CONTENT</strong><br>
+      <input type="text" name="content" th:value="${todo_one.content}"><br>
+        <strong>PASSWORD</strong><br>
+      <input type="text" name="password" placeholder="비밀 번호를 입력하세요."> <br>
+      <button type="submit">보내기</button>
+    </form>
+
+</body>
+</html>

@@ -45,13 +45,12 @@ public class MemoController {
         return "redirect:/Memo";
     }
 
-//    @GetMapping("/memo")
-//    public String listAll(Model model){
-//        List<MemoDto> all = service.listAll();
-//        model.addAttribute("memoData", all);
-//        System.out.println("size: " + all.size());
-//        return "memo_list";
-//    }
+    @GetMapping("/delete/{idx}")
+    public String memo_del(@PathVariable("idx") int idx){
+        service.delete(idx);
+        return "redirect:/Memo";
+    }
+
 
 
 }
