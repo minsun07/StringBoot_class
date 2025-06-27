@@ -9,8 +9,8 @@ import java.util.List;
 public interface BoardDao {
     public void insert(BoardDto dto);
     public void update(BoardDto dto);
-    public void delete(int idx);
+    public void delete(int id);
     public List<BoardDto> listAll();
-
-    public BoardDto selectOne(int idx);
+    public BoardDto selectOne(int id);
+    public void countHits(int id);
 }

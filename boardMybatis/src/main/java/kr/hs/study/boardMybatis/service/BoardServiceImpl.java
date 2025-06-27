@@ -37,4 +37,8 @@ public class BoardServiceImpl implements BoardService{
         return dao.selectOne(id);
     }
 
+    @Override
+    public void countHits(int id) {
+        dao.countHits(id);
+    }
 }

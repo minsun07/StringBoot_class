@@ -9,6 +9,6 @@ public interface BoardService {
     public void update(BoardDto dto);
     public void delete(int id);
     public List<BoardDto> listAll();
-
     public BoardDto selectOne(int id);
+    public void countHits(int id);
 }

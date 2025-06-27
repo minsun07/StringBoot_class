@@ -7,4 +7,10 @@
     <select id="listAll" resultType="kr.hs.study.boardMybatis.dto.BoardDto">
         select * from board order by id desc
     </select>
+    <update id="countHits" parameterType="int">
+        update board set boardHits = boardHits + 1 where id = #{id}
+    </update>
+    <select id="selectOne" resultType="kr.hs.study.boardMybatis.dto.BoardDto">
+        select * from board where id=#{id}
+    </select>
 </mapper>
