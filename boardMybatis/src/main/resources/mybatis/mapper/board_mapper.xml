@@ -13,4 +13,10 @@
     <select id="selectOne" resultType="kr.hs.study.boardMybatis.dto.BoardDto">
         select * from board where id=#{id}
     </select>
+    <update id="update" parameterType="kr.hs.study.boardMybatis.dto.BoardDto">
+        update board set boardWriter=#{boardWriter}, boardPass=#{boardPass}, boardTitle=#{boardTitle}, boardContents=#{boardContents} where id=#{id}
+    </update>
+    <delete id="delete">
+        delete from board where id=#{id}
+    </delete>
 </mapper>

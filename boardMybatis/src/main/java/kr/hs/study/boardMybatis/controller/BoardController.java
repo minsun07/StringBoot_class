@@ -47,4 +47,44 @@ public class BoardController {
         return "contents";
     }
 
+    @GetMapping("/update/{id}")
+    public String update_form(@PathVariable("id") int id, Model model){
+        BoardDto updateBoard = service.selectOne(id);
+        model.addAttribute("upboardone", updateBoard);
+        return "updateBoard";
+    }
+
+    @PostMapping("/update")
+    public String update(BoardDto dto){
+        BoardDto boardValue = service.selectOne(dto.getId());
+
+        if(boardValue.getBoardPass().equals(dto.getBoardPass())){
+            service.update(dto);
+            return "redirect:/board/" + dto.getId();
+        }
+
+        return "redirect:/board/update/" + dto.getId();
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id, Model model){
+        BoardDto dto = service.selectOne(id);
+        model.addAttribute("posts", dto);
+        return "deleteBoard";
+    }
+
+    @PostMapping("/delete")
+    public String delete_from(BoardDto dto){
+        BoardDto existingPosts = service.selectOne(dto.getId());
+
+        if(dto.getBoardPass().equals(existingPosts.getBoardPass())){
+            service.delete(dto.getId());
+            return "redirect:/board/list";
+        }
+
+        return "redirect:/board/delete/" + dto.getId();
+    }
+
+
+
 }
