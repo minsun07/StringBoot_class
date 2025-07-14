@@ -1,6 +1,7 @@
 package kr.hs.study.boardMybatis.controller;
 
 import kr.hs.study.boardMybatis.dto.BoardDto;
+import kr.hs.study.boardMybatis.dto.CommentDto;
 import kr.hs.study.boardMybatis.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -84,7 +85,5 @@ public class BoardController {
 
         return "redirect:/board/delete/" + dto.getId();
     }
-
-
 
 }

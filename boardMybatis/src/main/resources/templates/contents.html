@@ -19,6 +19,9 @@
   button{
     margin-right: 10px;
   }
+  .comment{
+    margin: 30px;
+  }
 </style>
 <body>
 <h1 th:text="'게시물'"></h1>
@@ -50,6 +53,12 @@
 <button type="button" onclick="listFn()" class="btn1">목록</button>
 <button type="button" onclick="updateFn()">수정</button>
 <button type="button" onclick="deleteFn()">삭제</button>
+<form method="post" action="/board/comment/save" class="comment">
+  <input type="hidden" name="boardId" th:value="${posts.id}">
+  <input type="text" name="commentWriter" placeholder="작성자">
+  <input type="text" name="commentContents" placeholder="내용">
+  <button type="submit">댓글 작성</button>
+</form>
 </body>
 <script>
   const listFn=()=>{

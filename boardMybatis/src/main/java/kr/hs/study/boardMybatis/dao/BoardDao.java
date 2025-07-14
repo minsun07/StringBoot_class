@@ -2,6 +2,7 @@ package kr.hs.study.boardMybatis.dao;
 
 import kr.hs.study.boardMybatis.dto.BoardDto;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
