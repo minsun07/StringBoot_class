@@ -3,6 +3,7 @@ package kr.hs.study.boardMybatis.controller;
 import kr.hs.study.boardMybatis.dto.BoardDto;
 import kr.hs.study.boardMybatis.dto.CommentDto;
 import kr.hs.study.boardMybatis.service.BoardService;
+import kr.hs.study.boardMybatis.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,10 @@ import static org.apache.ibatis.ognl.DynamicSubscript.all;
 public class BoardController {
     @Autowired
     private BoardService service;
+
+    @Autowired
+    private CommentService commentService;
+
 
     @GetMapping()
     public String board(){
@@ -44,7 +49,9 @@ public class BoardController {
     public String countHits(@PathVariable("id") int id, Model model){
         service.countHits(id);
         BoardDto dto = service.selectOne(id);
+        List<CommentDto> comDto = commentService.select(id);
         model.addAttribute("posts", dto);
+        model.addAttribute("commentListData", comDto);
         return "contents";
     }
 

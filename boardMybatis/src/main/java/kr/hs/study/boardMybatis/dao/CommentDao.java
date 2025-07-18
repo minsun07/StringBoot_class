@@ -9,4 +9,5 @@ import java.util.List;
 @Mapper
 public interface CommentDao {
     public void insert(CommentDto dto);
+    public List<CommentDto> select(int boardId);
 }

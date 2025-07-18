@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/board")
 public class CommentController {
@@ -22,5 +24,12 @@ public class CommentController {
         System.out.println("comment dto: "+dto);
         return "redirect:/board/" + dto.getBoardId();
     }
+
+//    @GetMapping("/{id}/comment")
+//    public String commentList(Model model){
+//        List<CommentDto> allList = service.select();
+//        model.addAttribute("commentListData", allList);
+//        return "contents";
+//    }
 
 }
