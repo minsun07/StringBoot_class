@@ -1,7 +1,7 @@
 package kr.hs.study.firstJPA.service;
 
-import kr.hs.study.firstJPA.entity.memoEntity;
+import kr.hs.study.firstJPA.dto.memoDto;
 
 public interface memoService {
-    public void save(memoEntity memo);
+    public void save(memoDto memo);
 }

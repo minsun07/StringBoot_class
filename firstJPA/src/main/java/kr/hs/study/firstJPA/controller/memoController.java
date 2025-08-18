@@ -13,12 +13,12 @@ public class memoController {
     private memoService service;
 
     @GetMapping("/input")
-    public String infrom(){
+    public String dataAdd(){
         return "inform";
     }
 
     @PostMapping("/input_done")
-    public String sendInfrom(memoDto dto){
-        service.save();
+    public void dataInput(memoDto dto){
+        service.save(dto);
     }
 }
