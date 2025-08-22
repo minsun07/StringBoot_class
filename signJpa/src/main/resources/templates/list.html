@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <td>Id</td>
+      <td>EMAIL</td>
+      <td>pw</td>
+      <td>NAME</td>
+      <th>상세 조회</th>
+      <th>삭제</th>
+    </tr>
+    <tr th:each="item:${members}">
+      <td th:text="${item.id}"></td>
+      <td th:text="${item.email}"></td>
+      <td th:text="${item.pw}"></td>
+      <td th:text="${item.name}"></td>
+      <td><a th:href="@{'/member/' + ${item.id}}">조회</a></td>
+      <td><a th:href="@{'/member/' + ${item.id}} + '/delete'">삭제</a></td>
+    </tr>
+  </table>
+</body>
+</html>
