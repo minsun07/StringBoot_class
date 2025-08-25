@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'내 정보 수정하기'"></h1>
+<form action="/sign_done" method="post">
+  이메일 : <input name="email" type="email" th:value="${members.email}"> <br>
+  비밀번호 : <input name="pw" type="password" th:value="${members.pw}"> <br>
+  이름 : <input name="name" type="text" th:value="${members.name}"> <br>
+  <button type="submit">회원가입</button>
+</form>
+</body>
+</html>

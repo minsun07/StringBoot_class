@@ -16,11 +16,6 @@ public class SigninController {
     @Autowired
     private SigninService service;
 
-//    @GetMapping("/login")
-//    public String login(){
-//        return "login";
-//    }
-
     @GetMapping("/sign")
     public String register() {
         return "signinForm";
@@ -37,5 +32,12 @@ public class SigninController {
         List<SigninDto> members = service.findAll();
         model.addAttribute("members", members);
         return "list";
+    }
+
+    //내정보 수정하기
+    @GetMapping("/member/update")
+    public String reSign(Model model){
+        SigninDto userDto = new SigninDto();
+        return "signinUpdateForm";
     }
 }

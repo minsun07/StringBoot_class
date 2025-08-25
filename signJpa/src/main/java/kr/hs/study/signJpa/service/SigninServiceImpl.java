@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SigninServiceImpl implements SigninService{
@@ -29,5 +30,29 @@ public class SigninServiceImpl implements SigninService{
             dtoList.add(dto);
         }
         return dtoList;
+    }
+
+    @Override
+    public SigninDto login(SigninDto dto) {
+        //repo의 findBy...호출해서 optional<SignEntity> email에 대입
+        Optional<SigninEntity> memberEmail = repo.findByemail(dto.getEmail());
+        if(memberEmail.isPresent()){
+            SigninEntity me = memberEmail.get(); //optional을 벗긴다(가져온다.)
+            if(me.getPw().equals(dto.getPw())){
+                SigninDto a = SigninEntity.toDTO(me); // a: email. pw
+                System.out.println("email, password : " + a);
+                return a;
+            }
+            else{
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public SigninDto findById(Long id) {
+        return SigninEntity.toDTO(repo.getReferenceById(id));
     }
 }
