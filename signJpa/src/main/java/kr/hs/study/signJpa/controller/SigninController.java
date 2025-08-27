@@ -1,5 +1,6 @@
 package kr.hs.study.signJpa.controller;
 
+import jakarta.servlet.http.HttpSession;
 import kr.hs.study.signJpa.dto.SigninDto;
 import kr.hs.study.signJpa.repository.SigninRepository;
 import kr.hs.study.signJpa.service.SigninService;
@@ -39,5 +40,12 @@ public class SigninController {
     public String reSign(Model model){
         SigninDto userDto = new SigninDto();
         return "signinUpdateForm";
+    }
+
+    @GetMapping("/member/logout")
+    public String logout(HttpSession session){
+        //세션 삭제(해제)
+        session.invalidate();
+        return "redirect:/";
     }
 }
